@@ -1,0 +1,167 @@
+@import url("https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Belgrano&family=Patua+One&family=Poppins:wght@300;400&display=swap");
+
+/* font-family: 'ADLaM Display', cursive; */
+/* font-family: 'Belgrano', serif; */
+/* font-family: 'Patua One', cursive; */
+/* font-family: 'Poppins', sans-serif; */ /*300, 400*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+/* GLOBAL */
+
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+h2 {
+  font-family: "Patua One", cursive;
+}
+
+p {
+  font-family: "Poppins", sans-serif;
+}
+
+/* NAV */
+
+nav {
+  position: fixed;
+  z-index: 10;
+  top: 4%;
+  left: 50%;
+  transform: translate(-50%, -4%);
+}
+
+nav > ul {
+  height: 5.5rem;
+  font-size: 1.85rem;
+  font-family: "Belgrano", serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  white-space: nowrap;
+}
+
+nav a {
+  height: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  padding: 0 1.4rem;
+  text-decoration: none;
+}
+
+.navOverlay {
+  width: 105%;
+  height: 100%;
+  position: absolute;
+  top: 0%;
+  left: -2.5%;
+  z-index: -1;
+  border-radius: 24px;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.15);
+}
+
+/* BG BLUE CIRCLE = Home page, Contact page */
+
+.bgColorCircleDiv {
+  width: inherit;
+  min-height: inherit;
+  height: inherit;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+}
+
+.bgColorCircle {
+  height: 120rem;
+  width: 120rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 0;
+  transform: translate(-50%, -50%);
+  background-color: rgba(88, 182, 253, 0.277);
+  border-radius: 50%;
+  filter: blur(100px);
+  animation-delay: 2s;
+}
+
+.loadingPage {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: #141414ff;
+}
+
+.loader {
+  height: 7rem;
+  width: 7rem;
+  border: 6px solid white;
+  border-radius: 50%;
+  border-top-color: rgb(119, 203, 255);
+  animation: rotate 800ms infinite linear;
+}
+
+@keyframes rotate {
+  100% {
+    rotate: 360deg;
+  }
+}
+
+/* MEDIA */
+
+@media (width < 1100px) {
+  .bgColorCircle {
+    height: 100rem;
+    width: 100rem;
+  }
+}
+
+@media (width < 800px) {
+  .bgColorCircle {
+    height: 90rem;
+    width: 90rem;
+  }
+}
+
+@media (width < 551px) {
+  .bgColorCircle {
+    height: 70rem;
+    width: 70rem;
+    top: -5%;
+    transform: translate(-50%, -0%);
+    background-color: rgba(88, 182, 253, 0.4);
+    filter: blur(80px);
+  }
+
+  nav a {
+    padding: 0 0.8rem;
+  }
+
+  nav > ul {
+    height: 4.8rem;
+    font-size: 1.55rem;
+  }
+
+  .navOverlay {
+    width: 102%;
+    left: -1%;
+    border-radius: 17px;
+  }
+}

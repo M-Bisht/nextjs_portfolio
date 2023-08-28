@@ -1,0 +1,249 @@
+.projectPage {
+  min-height: 68rem;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: #141414ff;
+}
+
+.swiperWrapper {
+  width: 70vw;
+  margin-top: 4rem;
+  border: 2px solid white;
+  border-radius: 10px;
+  opacity: 0;
+}
+
+.swipes {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+:is(.swipesMobile, .swipes) > :is(h2) {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  font-size: 8rem;
+  letter-spacing: 2px;
+  color: rgb(251, 255, 0);
+  background-color: rgba(0, 0, 0, 0.859);
+  opacity: 0;
+  transition: 200ms linear;
+}
+
+:is(.swipesMobile, .swipes) > :is(h2:hover) {
+  opacity: 1;
+}
+
+.swipes > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.clickDivContainer {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 11;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.clickDiv {
+  width: 60rem;
+  height: 70vh;
+  padding: 1rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 12;
+  transform: translate(-50%, -50%);
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 10px;
+  background-color: #141414ff;
+  color: white;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.clickDiv::-webkit-scrollbar {
+  width: 0rem;
+}
+
+.close {
+  position: absolute;
+  top: 3%;
+  right: 4%;
+  z-index: 13;
+  background-color: rgb(0, 0, 0);
+  height: 2.7rem;
+  width: 2.7rem;
+  padding: 0.5rem;
+  outline: 2px solid white;
+  border-radius: 50%;
+}
+
+.clickDiv > video {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.clickDiv > h2 {
+  width: 100%;
+  font-size: 3.3rem;
+  text-align: center;
+  margin-top: 2rem;
+  color: rgb(251, 255, 0);
+  letter-spacing: 1px;
+}
+
+.clickDiv > p {
+  width: 100%;
+  font-size: 1.8rem;
+  text-align: center;
+  margin-top: 2rem;
+  line-height: 2.5rem;
+}
+
+.clickDiv > ul {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.ulDiv1 {
+  width: 35%;
+  font-size: 2.2rem;
+  padding: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+.ulDiv2 {
+  width: 65%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 1rem;
+  list-style: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.ulDiv2 > li {
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 0.7rem 1.1rem;
+  font-size: 1.7rem;
+  transition: border 200ms ease;
+}
+
+.ulDiv2 > li:hover {
+  border: 1px solid rgb(251, 255, 0);
+}
+
+.liveLink,
+.githubRepo {
+  margin-top: 2rem;
+  font-size: 2.1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-left: 1.7rem;
+}
+
+:is(.liveLink, .githubRepo) > :is(a) {
+  color: rgba(135, 206, 250, 0.8);
+  text-decoration: none;
+  font-size: 1.8rem;
+  transition: color 200ms ease;
+}
+
+:is(.liveLink:hover, .githubRepo:hover) > :is(a) {
+  text-decoration: underline;
+  color: rgba(135, 206, 250, 1);
+}
+
+.divWrapper {
+  width: 100%;
+  height: 100%;
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  margin: 10rem 0 0 0;
+}
+
+.swipesMobile {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+
+
+.swipesMobile > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 2px solid white;
+  border-radius: 10px;
+}
+/* MEDIA */
+
+@media (width < 1185px) {
+  :is(.swipesMobile, .swipes) > :is(h2) {
+    font-size: 6rem;
+  }
+}
+
+@media (width < 1000px) {
+  :is(.swipesMobile, .swipes) > :is(h2) {
+    font-size: 5rem;
+  }
+}
+
+@media (width < 900px) {
+  .projectPage {
+    height: auto;
+  }
+}
+
+@media (width < 631px) {
+  .clickDiv {
+    width: 98vw;
+  }
+}
+
+@media (width < 550px) {
+  :is(.swipesMobile, .swipes) > :is(h2) {
+    font-size: 9vw;
+  }
+  .clickDiv {
+    height: 70vh;
+  }
+}
+
+@media (width < 451px) {
+  .clickDiv > ul {
+    flex-direction: column;
+    margin-top: 2.3rem;
+  }
+  .ulDiv1,
+  .ulDiv2 {
+    width: 100%;
+    justify-content: center;
+  }
+}

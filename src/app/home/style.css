@@ -1,0 +1,45 @@
+.homePage {
+  min-height: 60rem;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background-color: #eae5e6ff;
+}
+
+.homePage > h1 {
+  display: flex;
+  gap: 4rem;
+  font-family: "ADLaM Display", cursive;
+  font-size: 15rem;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.fNameSpan,
+.lNameSpan {
+  position: relative;
+}
+
+/* Media */
+
+@media (width < 1000px) {
+  .homePage > h1 {
+    font-size: 14vw;
+    gap: 2.5vw;
+  }
+}
+
+@media (width < 550px) {
+  .homePage > h1 {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    font-size: 19vw;
+  }
+}
