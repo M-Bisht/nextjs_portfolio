@@ -1,14 +1,14 @@
 "use client";
-
-import React, { useEffect, useState } from "react";
-import "./style.css";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { useEffect, useState } from "react";
 import "swiper/css";
-import "swiper/css/effect-cube";
 import "swiper/css/effect-coverflow";
+import "swiper/css/effect-cube";
 import "swiper/css/pagination";
-import { EffectCube, EffectCoverflow, Pagination } from "swiper/modules";
+import { EffectCoverflow, EffectCube, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 import ImgDataApi from "./comps/ImgDataApi";
+import "./style.css";
+import Image from "next/image";
 
 const Page = () => {
   const [windowWidth, setWindowWidth] = useState(null);
@@ -29,7 +29,13 @@ const Page = () => {
   const imgCall = (className) => {
     return ImgDataApi.map((elem, ind) => (
       <SwiperSlide key={ind} className={className}>
-        <img src={elem.img} alt="Technologies I am Familiar With" />
+        <Image
+          src={elem.img}
+          alt="Technologies I am Familiar With"
+          sizes="100%"
+          width={0}
+          height={0}
+        />
       </SwiperSlide>
     ));
   };

@@ -1,11 +1,9 @@
-"use client"
-import React from "react";
-import "./home/style.css";
+import BgColorCircle from "./global/comps/BgColorCircle";
 import Fname from "./home/comps/Fname";
 import Lname from "./home/comps/Lname";
-import BgColorCircle from "./global/comps/BgColorCircle";
+import "./home/style.css";
 
-const homePage = () => {
+const HomePage = () => {
   return (
     <div className="homePage">
       <h1>
@@ -17,4 +15,4 @@ const homePage = () => {
   );
 };
 
-export default homePage;
+export default HomePage;

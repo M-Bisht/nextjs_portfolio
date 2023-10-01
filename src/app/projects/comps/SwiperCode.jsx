@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import { Pagination, Navigation } from "swiper/modules";
-import DataApi from "./DataApi";
-import ClickDataApi from "./ClickDataApi";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+"use client";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { gsap } from "gsap";
+import { useLayoutEffect, useState } from "react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Navigation, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import ClickDataApi from "./ClickDataApi";
+import DataApi from "./DataApi";
+import Image from "next/image";
 
 const SwiperCode = () => {
   // Defining Click Div Display Property
@@ -20,8 +22,9 @@ const SwiperCode = () => {
   const [techs, setTechs] = useState([]);
   const [clickDivStyle, setClickDivStyle] = useState(clickDivDisplayNone);
   const [windowWidth, setWindowWidth] = useState(null);
+
   // By call back swipe data get and set in usestate
-  const swipes = (e, i) => {
+  const swipes = (_e, i) => {
     setSwipeIndex(i);
     setClickDivStyle(clickDivDisplay);
   };
@@ -48,7 +51,13 @@ const SwiperCode = () => {
           className={className}
           key={index}
         >
-          <img src={elem.img} alt={elem.hoverText} />
+          <Image
+            src={elem.img}
+            alt={elem.hoverText}
+            sizes="100%"
+            width={0}
+            height={0}
+          />
           <h2>{elem.hoverText}</h2>
         </SwiperSlide>
       );
@@ -81,13 +90,13 @@ const SwiperCode = () => {
     }
   };
 
-  // Calling Tech Function
-  useEffect(() => {
+  // Gsap Animation
+  useLayoutEffect(() => {
     setWindowWidth(window.outerWidth);
     techFun();
+
     if (windowWidth >= 900) {
       gsap.to(".swiperWrapper", {
-        delay: 1,
         autoAlpha: 1,
       });
     }
@@ -96,13 +105,13 @@ const SwiperCode = () => {
     let ctx = gsap.context(() => {
       media.add("(width < 900px)", () => {
         gsap.from(".swipesMobile", {
-          delay: 0.5,
           opacity: 0,
           duration: 1.2,
           stagger: 0.2,
         });
       });
     });
+
     return () => ctx.revert(); // <-- CLEANUP!
   }, [windowWidth]);
 

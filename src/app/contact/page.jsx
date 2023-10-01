@@ -1,9 +1,7 @@
-"use client";
-import React from "react";
-import "./style.css";
 import BgColorCircle from "../global/comps/BgColorCircle";
 import ContactForm from "./comps/ContactForm";
 import ContactInfo from "./comps/ContactInfo";
+import "./style.css";
 
 const page = () => {
   return (

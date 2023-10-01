@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+"use client";
 import { gsap } from "gsap";
+import { useLayoutEffect } from "react";
 
 const Fname = () => {
   // Spliting name and making its array
@@ -20,9 +21,8 @@ const Fname = () => {
     });
 
     media.add("(width < 550px)", () => {
-      gsap
-        .timeline()
-        .from(".fNameSpan", {
+      gsap.timeline()
+      .from(".fNameSpan", {
           top: -160,
           duration: 0.5,
           stagger: 0.1,
@@ -31,18 +31,16 @@ const Fname = () => {
             top: 160,
             duration: 0.5,
             stagger: 0.1,
-          },"0.3"
-        );
-    });
+          },"0.3");
+        });
   };
 
   // Using UseEffect Hook
-  useEffect(() => {
-    
+  useLayoutEffect(() => {
     // Calling Gsap Animation
     fNameGsap();
   }, []);
-  
+
   return (
     <div className="fName">
       {fNameArr.map((span, index) => {
