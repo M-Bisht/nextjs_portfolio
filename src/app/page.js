@@ -8,7 +8,7 @@ const HomePage = () => {
     <div className="homePage">
       <h1>
         <Fname /> {/* Defined Both Gsap in Fname */}
-        <Lname />
+        <a  href="https://mixupbytes.com"><Lname /></a>
       </h1>
       <BgColorCircle />
     </div>
